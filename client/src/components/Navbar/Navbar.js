@@ -26,6 +26,10 @@ const Navbar = () =>{
         setUser(null);
     };
 
+    const handleSignin = () =>{
+        navigate('/auth');
+    }
+
     useEffect(()=>{
         // const token = user?.token;
 
@@ -47,7 +51,8 @@ const Navbar = () =>{
                         <Button variant='contained' className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                     </div>
                 ) : (
-                    <Button component={Link} to="/auth" variant='contained' color='primary'>Sign In</Button>
+                    //component={Link} to="/auth"
+                    <Button onClick={handleSignin} variant='contained' color='primary'>Sign In</Button>
                 )}
             </Toolbar>
         </AppBar>

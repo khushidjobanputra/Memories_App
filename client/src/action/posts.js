@@ -7,7 +7,7 @@ export const getPost = (id) => async (dispatch) => {
         const { data } = await api.fetchPost(id);
 
         dispatch({ type: FETCH_POST, payload: data });
-        dispatch({ type: END_LOADING });
+        dispatch({ type: END_LOADING }); 
     } catch (error) {
         console.log(error);
     }
@@ -46,7 +46,7 @@ export const createPost = (post, history) => async (dispatch) => {
     } catch (error) {
         console.log(error);
     }
-}
+}  
 
 export const updatePost = (id, post) => async (dispatch) => {
     try {

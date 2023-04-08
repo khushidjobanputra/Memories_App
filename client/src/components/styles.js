@@ -5,4 +5,8 @@ export default makeStyles(() => ({
     ul:{
         justifyContent: 'space-around',
     },
+    pages: {
+        padding: '10px',
+        borderRadius: 15
+    }
 }));

@@ -34,7 +34,7 @@ export default makeStyles((theme) => ({
   },
   profile: {
     display: 'flex',
-    justifyContent: 'space-between',
+    // justifyContent: 'space-between',
     width: '400px',
     alignItems: 'center',
     [theme.breakpoints.down('sm')]: {
@@ -44,7 +44,8 @@ export default makeStyles((theme) => ({
     },
   },
   logout: {
-    marginLeft: '20px',
+    marginLeft: '50px',
+    marginRight: '-30px'
   },
   userName: {
     display: 'flex',
@@ -58,6 +59,7 @@ export default makeStyles((theme) => ({
   purple: {
     color: theme.palette.getContrastText(deepPurple[500]),
     backgroundColor: deepPurple[500],
+    marginRight: '10px'
   },
 }));
  

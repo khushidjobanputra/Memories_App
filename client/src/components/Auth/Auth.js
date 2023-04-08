@@ -23,7 +23,7 @@ const Auth = () =>{
     const handleSubmit = (e) =>{
         e.preventDefault();
         
-        if(isSignup){
+        if(isSignup){    
             //signup the user
             dispatch(signup(formData, navigate));
         }
@@ -53,7 +53,7 @@ const Auth = () =>{
     //     }catch(error){
     //         console.log(error);
     //     }
-    // };
+    // }; 
 
     // const googleFailure = (error) =>{
     //     console.log(error);

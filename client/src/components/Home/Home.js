@@ -33,12 +33,12 @@ const Home = () =>{
     const searchPost = () => {
         if(search.trim() || tags) {
             dispatch(getPostsBySearch({ search, tags: tags.join(','), searchQuery}))
-            navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',')}`);
+            navigate(`/posts/search?searchQuery=${search || 'none'}&tags=${tags.join(',') || 'none'}`);
         }
         else{
             navigate('/');
         }
-    }
+    } 
 
     const handleKeyPress = (e) => {
         if(e.keyCode === 13){
@@ -54,7 +54,7 @@ const Home = () =>{
 
         <Grow in> 
             <Container maxWidth='xl'>
-                <Grid container justifyContent="space-between" alignItems="stretch" spacing={3} className={classes.gridContainer}>
+                <Grid container justifyContent="space-between" alignItems="stretch" spacing={2} className={classes.gridContainer}>
                     <Grid item xs={12} sm={6} md={9}>
                         <Posts setCurrentId={setCurrentId} />
                     </Grid>
@@ -77,7 +77,7 @@ const Home = () =>{
                             label = "Search Tags"
                             variant='outlined'
                          />
-                         <Button onClick={searchPost} className={classes.searchButton} variant="contained" color="primary">Search</Button>
+                         <Button onClick={searchPost} className={classes.searchButton} color="primary" variant="contained" >Search</Button>
                     </AppBar>
                         <Form currentId={currentId} setCurrentId={setCurrentId} />
                         {(!searchQuery && !tags.length) && (
@@ -94,3 +94,4 @@ const Home = () =>{
 
 
 export default Home;
+
