@@ -9,7 +9,7 @@ export const getPosts = async(req,res)=>{
     const {page} = req.query;
 
     try{
-        const LIMIT = 2;
+        const LIMIT = 6;
         const startIndex = (Number(page) - 1) * LIMIT; //get starting index of every page
         const total = await PostMessage.countDocuments({});
 
@@ -19,7 +19,7 @@ export const getPosts = async(req,res)=>{
     }
     catch(error){
         res.status(404).json({message: error.message});
-    }
+    } 
 } 
 
 export const getPost = async(req,res) => {
@@ -64,7 +64,7 @@ export const createPost = async (req, res) => {
     } catch (error) {
         res.status(409).json({ message: error.message });
     }
-}
+} 
 
 export const updatePost = async(req, res) =>{
 
