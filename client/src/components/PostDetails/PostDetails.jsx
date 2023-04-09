@@ -60,15 +60,15 @@ const PostDetails = () => {
                     <Typography gutterBottom variant='h5'>You might also like:</Typography>
                     <Divider />
                     <div className={classes.recommendedPosts}>
-                        {recommendedPosts.map(({title, message, name, likes, selectedFile, _id }) =>(
+                        {recommendedPosts.map(({title, message, name, tags, createdAt, selectedFile, _id }) =>(
                             <Card style={{ margin: '20px', cursor: "pointer" }} className={classes.card2} raised elevation={6} onClick={() => openPost(_id)}>
                 <CardMedia className={classes.media2} image={selectedFile} title={post.title} />
                 <div className={classes.overlay2}>
                     <Typography variant='h6'>{name}</Typography>
-                    <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
+                    <Typography variant='body2'>{moment(createdAt).fromNow()}</Typography>
                 </div>
                 <div className={classes.details2}>
-                    <Typography variant='body2' color='primary'>{post.tags.map((tag) => `#${tag} `)}</Typography>
+                    <Typography variant='body2' color='primary'>{tags.map((tag) => `#${tag} `)}</Typography>
                 </div>
                 <Typography className={classes.title2} variant='h5' gutterBottom>{title}</Typography>
                 <CardContent>
