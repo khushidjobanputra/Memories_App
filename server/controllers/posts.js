@@ -39,7 +39,7 @@ export const getPost = async(req,res) => {
 //params -> /posts/:id -> /posts/123 -> id=123
 
 export const getPostsBySearch = async(req, res) => {
-
+    // console.log('223423')
     const {searchQuery, tags} = req.query;
     // console.log(searchQuery);
     // console.log(tags);
@@ -50,7 +50,7 @@ export const getPostsBySearch = async(req, res) => {
         // console.log(posts);
         res.json({data: posts});
     }catch(error){
-        res.status(404).json({message: error.message});``
+        res.status(404).json({message: error.message});
     }
 }
 

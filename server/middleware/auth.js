@@ -11,7 +11,10 @@ const auth = async(req, res, next) =>{
         //     return;
         // }
         // console.log(req.headers.authorization);
+        // console.log('234234')
         const token = req.headers.authorization?.split(" ")[1];
+        // console.log('243744')
+
         // const token = req.headers.authorization;
         // console.log(token);
         const isCustomAuth = token.length < 500;
