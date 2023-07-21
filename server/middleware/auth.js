@@ -1,37 +1,34 @@
 import jwt from 'jsonwebtoken';
 
-//wants to like a post
-//click the like button => auth middleware(next) -> it confirms => then like controller..
+// wants to like a post
+// click the like button => auth middleware (NEXT) => like controller...
 
-const auth = async(req, res, next) =>{
+const auth = async (req, res, next) => {
+    try {
+        const authHeader = req.header('Authorization');
 
-    try{
-        // if(typeof req.headers.authorization !== 'string'){
-        //     res.sendStatus(400);
-        //     return;
-        // }
-        // console.log(req.headers.authorization);
-        // console.log('234234')
-        const token = req.headers.authorization?.split(" ")[1];
-        // console.log('243744')
-
-        // const token = req.headers.authorization;
-        // console.log(token);
+        if (!authHeader) {
+            return res.sendStatus(401); // Unauthorized
+        }
+        
+        const token = authHeader.split(' ')[1];
+        
         const isCustomAuth = token.length < 500;
 
         let decodedData;
 
-        if(token && isCustomAuth){
+        if(token && isCustomAuth) {
             decodedData = jwt.verify(token, 'test');
+
             req.userId = decodedData?.id;
-        }
-        else{
+        } else {
             decodedData = jwt.decode(token);
+
             req.userId = decodedData?.sub;
         }
-        next();
 
-    }catch(error){
+        next();
+    } catch (error) {
         console.log(error);
     }
 }

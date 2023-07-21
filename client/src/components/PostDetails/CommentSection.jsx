@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Typography, TextField, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
@@ -29,6 +29,7 @@ const CommentSection = ({ post }) => {
         setComment('');
 
         commentsRef.current.scrollIntoView({ behavior: 'smooth' });
+        window.location.reload();
     }
     
 

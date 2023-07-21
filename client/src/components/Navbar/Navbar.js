@@ -24,6 +24,7 @@ const Navbar = () =>{
         dispatch({type: LOGOUT});
         navigate('/');
         setUser(null);
+        window.location.reload();
     };
 
     const handleSignin = () =>{

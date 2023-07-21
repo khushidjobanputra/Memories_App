@@ -21,6 +21,7 @@ const Auth = () =>{
     const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
+        console.log(formData)
         e.preventDefault();
         
         if(isSignup){    
@@ -36,12 +37,12 @@ const Auth = () =>{
         setFormData({...formData,[e.target.name]: e.target.value});
     }
 
+    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
+
     const switchMode = () =>{
         setIsSignUp((prevIsSignup) => !prevIsSignup);
-        setShowPassword(false);
+        handleShowPassword(false);
     }
-
-    const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword);
 
     // const googleSuccess = async (res) =>{
     //     const result = res?.ProfileObj;

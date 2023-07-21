@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+// import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbUpOffAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
-import DeleteIcon from '@material-ui/icons/Delete';
+// import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import moment from 'moment';
+// import moment from 'moment';
 // import useStyles from './styles';
 import { useDispatch } from 'react-redux';
 import './styles.css'
@@ -63,9 +64,13 @@ const Post = ({ post, setCurrentId }) => {
                     <p className='card-info'>{post.message.slice(0,100)}</p><p onClick={openPost}>...read more</p>
                     <p className='card-info2'>{post.tags.map((tag) => `#${tag} `)}</p>
                     <div className='overlay2'>
-                    <Button style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
-                    <MoreHorizIcon fontSize="medium" />
-                    </Button> 
+                        {
+                            (user?.result?._id === post?.creator) && (
+                                <Button style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
+                                <MoreHorizIcon fontSize="medium" />
+                                </Button> 
+                            )
+                        }
                     </div>  
                 <div className='btn'>
                  <button size='medium' color='white' className='like-btn' disabled={!user?.result} onClick={handleLike}>
@@ -76,7 +81,10 @@ const Post = ({ post, setCurrentId }) => {
                  </button>
                  </div>
                  {(user?.result?._id === post?.creator) && (
-                     <button className='delete-btn' color='red'  onClick={() => dispatch(deletePost(post._id))}>
+                     <button className='delete-btn' color='red'  onClick={() =>{
+                        dispatch(deletePost(post._id))
+                        window.location.reload()  
+                     }}>
                          {/* <DeleteIcon fontSize="medium"/> */}
                          Delete
                      </button>

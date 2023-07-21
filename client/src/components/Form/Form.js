@@ -26,7 +26,7 @@ const Form = ({currentId, setCurrentId}) => {
         if(post) setPostData(post);
     }, [post]) 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
 
         if(currentId){
@@ -36,6 +36,7 @@ const Form = ({currentId, setCurrentId}) => {
             dispatch(createPost({ ...postData, name: user?.result?.name}, navigate));
         }
         clear();
+        window.location.reload();
     }
 
     const clear = () => {

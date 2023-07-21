@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/user.js';     
 
 export const signin = async(req, res) => {
-    console.log("route has been hit")
+    // console.log("route has been hit")
     const {email, password} = req.body;
 
     try{
